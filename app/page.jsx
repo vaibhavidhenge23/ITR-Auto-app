@@ -14,7 +14,7 @@ export default function Home() {
     <div className="flex flex-col items-center justify-center min-h-[80vh] gap-8 text-center">
       <div>
         <h1 className="text-5xl font-bold text-blue-400 mb-3">ITR Filing App</h1>
-        <p className="text-gray-400 text-lg">Apna income tax khud calculate karo — CA ke bina 🇮🇳</p>
+        <p className="text-gray-400 text-lg">Be you own CA </p>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 w-full max-w-3xl">
         {features.map((f) => (
