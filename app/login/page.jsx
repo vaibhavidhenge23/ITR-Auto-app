@@ -125,7 +125,7 @@ export default function LoginPage() {
           {/* Register Form */}
           {isRegister && (
             <form onSubmit={handleRegister} className="space-y-3">
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <label className={labelCls}>Full Name</label>
                   <input type="text" placeholder="Vaibhavi Sharma" required
@@ -145,7 +145,7 @@ export default function LoginPage() {
                   value={regForm.email} onChange={e => setRegForm({ ...regForm, email: e.target.value })}
                   className={inputCls} />
               </div>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <label className={labelCls}>Phone Number</label>
                   <input type="tel" placeholder="9876543210" required
@@ -159,7 +159,7 @@ export default function LoginPage() {
                     className={inputCls} />
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <label className={labelCls}>Password</label>
                   <input type="password" placeholder="Create password" required

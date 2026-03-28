@@ -34,22 +34,35 @@ export default function Header() {
 
   return (
     <header className="bg-gray-900 border-b border-gray-800 px-4 py-3 sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <Link href="/" className="text-blue-400 font-bold text-xl shrink-0">📋 ITR Auto</Link>
-        <nav className="flex gap-1 flex-wrap">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-3">
+        {/* Top Row: Brand & Mobile Logout */}
+        <div className="flex items-center justify-between">
+          <Link href="/" className="text-blue-400 font-bold text-xl shrink-0">📋 ITR Auto</Link>
+          {user && (
+            <button onClick={logout}
+              className="md:hidden flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs text-gray-400 hover:text-red-400 hover:bg-gray-800 transition shrink-0">
+              <LogOut size={14} /> Logout
+            </button>
+          )}
+        </div>
+
+        {/* Navigation scrollable on mobile */}
+        <nav className="flex gap-2 overflow-x-auto hide-scrollbar pb-1 md:pb-0 snap-x">
           {nav.map(({ href, label, icon: Icon }) => (
             <Link key={href} href={href}
-              className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs transition-all
+              className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs whitespace-nowrap transition-all snap-start
                 ${path === href
                   ? "bg-blue-500 text-white font-semibold"
                   : "text-gray-400 hover:text-white hover:bg-gray-800"}`}>
-              <Icon size={14} />{label}
+              <Icon size={14} className="shrink-0" />{label}
             </Link>
           ))}
         </nav>
+
+        {/* Desktop Logout */}
         {user && (
           <button onClick={logout}
-            className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs text-gray-400 hover:text-red-400 hover:bg-gray-800 transition shrink-0">
+            className="hidden md:flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs text-gray-400 hover:text-red-400 hover:bg-gray-800 transition shrink-0">
             <LogOut size={14} /> Logout
           </button>
         )}
